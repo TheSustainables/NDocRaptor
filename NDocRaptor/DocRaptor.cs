@@ -84,6 +84,7 @@ namespace NDocRaptor {
             var request = new HttpRequestMessage(HttpMethod.Post, requestUrl);
             request.Content = new FormUrlEncodedContent(form);
 
+            var responseMessage = await Client.SendAsync(request).ConfigureAwait(false);
 
             return CreateResponse(responseMessage);
         }
