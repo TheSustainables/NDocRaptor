@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>NDocRaptor</id>
+    <version>0.1.0</version>
+    <authors>Robert Massa</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>DocRaptor .NET client library (unofficial)</description>
+    <releaseNotes>First release.</releaseNotes>
+    <copyright>Copyright The Sustainables BV 2015</copyright>
+    <tags>docraptor pdf excel</tags>
+  </metadata>
+  <files>
+    <file src="NDocRaptor\bin\Release\*.dll" target="lib\net40" /> 
+  </files>
+</package>
