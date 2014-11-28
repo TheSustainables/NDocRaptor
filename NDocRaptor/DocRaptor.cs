@@ -11,7 +11,14 @@ namespace NDocRaptor {
         private readonly string ApiKey;
         private readonly string Tag;
         private readonly bool TestMode;
-
+        
+        /// <summary>
+        /// Represents a simple wrapper around the DocRaptor web API
+        /// </summary>
+        /// <param name="apiKey">Your API key (see DocRaptor dashboard)</param>
+        /// <param name="useSsl">Whether to use ssl (slower)</param>
+        /// <param name="testMode">Whether to enable test-mode</param>
+        /// <param name="tag">Tag to use for all requests</param>
         public DocRaptor(string apiKey, bool useSsl = false, bool testMode = false, string tag = null) {
             ApiKey = apiKey;
             TestMode = testMode;
@@ -20,6 +27,20 @@ namespace NDocRaptor {
             DocRaptorUrl = new Uri(useSsl ? "https" : "http" + "://docraptor.com/docs");
         }
 
+        /// <summary>
+        /// Send a HTTP request to DocRaptor
+        /// </summary>
+        /// <param name="url">The URL of the page to convert</param>
+        /// <param name="content">The content to convert</param>
+        /// <param name="name">The document name (visible in DocRaptor dashboard)</param>
+        /// <param name="tag">The tag to use</param>
+        /// <param name="documentType">The document type</param>
+        /// <param name="princeVersion">Prince version (7.0, 8.0 or 9.0)</param>
+        /// <param name="strict">Whether to use strict HTML validation</param>
+        /// <param name="javascript">Whether to enable javascript</param>
+        /// <param name="test">Whether to enable test-mode</param>
+        /// <param name="help">Whether to mark document for support</param>
+        /// <returns>A DocRaptorResponse object containing response information.</returns>
         public async Task<DocRaptorResponse> CreateDocumentAsync(
             Uri url = null,
             string content = null,
@@ -63,11 +84,20 @@ namespace NDocRaptor {
             var request = new HttpRequestMessage(HttpMethod.Post, requestUrl);
             request.Content = new FormUrlEncodedContent(form);
 
-            var responseMessage = await Client.SendAsync(request);
 
             return CreateResponse(responseMessage);
         }
 
+        /// <summary>
+        /// Send a PDF generation request using HTML content
+        /// </summary>
+        /// <param name="url">The URL of the page to convert to PDF</param>
+        /// <param name="name">The document name (visible in DocRaptor dashboard)</param>
+        /// <param name="princeVersion">Prince version (7.0, 8.0 or 9.0)</param>
+        /// <param name="strict">Whether to use strict HTML validation</param>
+        /// <param name="javascript">Whether to enable javascript</param>
+        /// <param name="help">Whether to mark document for support</param>
+        /// <returns>A DocRaptorResponse object containing response information.</returns>
         public async Task<DocRaptorResponse> CreatePdfDocumentAsync(
             Uri url,
             string name = "Untitled",
@@ -83,6 +113,16 @@ namespace NDocRaptor {
             return await CreateDocumentAsync(url, null, name, Tag, DocumentType.Pdf, princeVersion, strict, javascript, TestMode, help);
         }
 
+        /// <summary>
+        /// Send a PDF generation request using HTML content
+        /// </summary>
+        /// <param name="content">The HTML content</param>
+        /// <param name="name">The document name (visible in DocRaptor dashboard)</param>
+        /// <param name="princeVersion">Prince version (7.0, 8.0 or 9.0)</param>
+        /// <param name="strict">Whether to use strict HTML validation</param>
+        /// <param name="javascript">Whether to enable javascript</param>
+        /// <param name="help">Whether to mark document for support</param>
+        /// <returns>A DocRaptorResponse object containing response information.</returns>
         public async Task<DocRaptorResponse> CreatePdfDocumentAsync(
             string content,
             string name = "Untitled",
