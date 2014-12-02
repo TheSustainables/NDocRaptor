@@ -111,7 +111,7 @@ namespace NDocRaptor {
                 throw new ArgumentNullException("url");
             }
 
-            return await CreateDocumentAsync(url, null, name, Tag, DocumentType.Pdf, princeVersion, strict, javascript, TestMode, help);
+            return await CreateDocumentAsync(url, null, name, Tag, DocumentType.Pdf, princeVersion, strict, javascript, TestMode, help).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -136,7 +136,7 @@ namespace NDocRaptor {
                 throw new ArgumentNullException("content");
             }
 
-            return await CreateDocumentAsync(null, content, name, Tag, DocumentType.Pdf, princeVersion, strict, javascript, TestMode, help);
+            return await CreateDocumentAsync(null, content, name, Tag, DocumentType.Pdf, princeVersion, strict, javascript, TestMode, help).ConfigureAwait(false);
         }
 
         private static DocRaptorResponse CreateResponse(HttpResponseMessage responseMessage) {
