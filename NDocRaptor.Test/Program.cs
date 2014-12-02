@@ -7,15 +7,14 @@ namespace NDocRaptor {
         static void Main(string[] args) {
             var raptor = new DocRaptor("<your api key>", testMode: true);
 
-            Action<DocRaptorResponse> test = response => {
-                Console.WriteLine("Success: {0}", response.Success);
-                Console.WriteLine("Error-phrase: {0}", response.ReasonPhrase);
+            Action<DocRaptorResponse> test = result => {
+                Console.WriteLine("Success: {0}", result.Success);
+                Console.WriteLine("Error-phrase: {0}", result.ReasonPhrase);
 
-                if (response.Success) {
-                    var tempFile = Path.GetTempFileName() + ".pdf";
-                    var bytes = response.Response.Content.ReadAsByteArrayAsync().Result;
-                    File.WriteAllBytes(tempFile, bytes);
-                    Process.Start(tempFile);
+                if (result.Success) {
+                    var path = Path.GetTempFileName() + ".pdf";
+                    result.SaveAs(path);
+                    Process.Start(path);
                 }
             };
 

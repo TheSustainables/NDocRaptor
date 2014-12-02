@@ -1,3 +1,4 @@
+using System.IO;
 using System.Net.Http;
 
 namespace NDocRaptor {
@@ -28,6 +29,16 @@ namespace NDocRaptor {
         public string ReasonPhrase {
             get {
                 return Response.ReasonPhrase;
+            }
+        }
+
+        /// <summary>
+        /// Save to content to a file
+        /// </summary>
+        /// <param name="path"></param>
+        public void SaveAs(string path) {
+            using (var fileStream = new FileStream(path, FileMode.Create)) {
+                Response.Content.CopyToAsync(fileStream).Wait();
             }
         }
 
