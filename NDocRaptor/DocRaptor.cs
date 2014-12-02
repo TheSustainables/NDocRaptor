@@ -35,11 +35,11 @@ namespace NDocRaptor {
         /// <param name="name">The document name (visible in DocRaptor dashboard)</param>
         /// <param name="tag">The tag to use</param>
         /// <param name="documentType">The document type</param>
-        /// <param name="princeVersion">Prince version (7.0, 8.0 or 9.0)</param>
         /// <param name="strict">Whether to use strict HTML validation</param>
         /// <param name="javascript">Whether to enable javascript</param>
         /// <param name="test">Whether to enable test-mode</param>
         /// <param name="help">Whether to mark document for support</param>
+        /// <param name="parameters">Extra parameters to pass trough (i.e. "doc[prince_options][version]" = "8.1")</param>
         /// <returns>A DocRaptorResponse object containing response information.</returns>
         public async Task<DocRaptorResponse> CreateDocumentAsync(
             Uri url = null,
@@ -47,11 +47,11 @@ namespace NDocRaptor {
             string name = "Untitled",
             string tag = null,
             DocumentType documentType = DocumentType.Pdf,
-            string princeVersion = "9.0",
             bool strict = false,
             bool javascript = false,
             bool test = false,
-            bool help = false) {
+            bool help = false,
+            Dictionary<string, string> parameters = null) {
 
             var form = new Dictionary<string, string> {
                 { "doc[document_type]", documentType.ToString().ToLower() },
@@ -76,8 +76,13 @@ namespace NDocRaptor {
             }
 
             if (documentType == DocumentType.Pdf) {
-                form.Add("doc[prince_options][version]", princeVersion);
                 form.Add("doc[javascript]", javascript.ToString().ToLower());
+            }
+
+            if (parameters != null) {
+                foreach (var kv in parameters) {
+                    form.Add(kv.Key, kv.Value);
+                }
             }
 
             var requestUrl = DocRaptorUrl.ToString() + "?user_credentials=" + ApiKey;
@@ -94,7 +99,6 @@ namespace NDocRaptor {
         /// </summary>
         /// <param name="url">The URL of the page to convert to PDF</param>
         /// <param name="name">The document name (visible in DocRaptor dashboard)</param>
-        /// <param name="princeVersion">Prince version (7.0, 8.0 or 9.0)</param>
         /// <param name="strict">Whether to use strict HTML validation</param>
         /// <param name="javascript">Whether to enable javascript</param>
         /// <param name="help">Whether to mark document for support</param>
@@ -102,7 +106,6 @@ namespace NDocRaptor {
         public async Task<DocRaptorResponse> CreatePdfDocumentAsync(
             Uri url,
             string name = "Untitled",
-            string princeVersion = "9.0",
             bool strict = false,
             bool javascript = false,
             bool help = false) {
@@ -111,7 +114,7 @@ namespace NDocRaptor {
                 throw new ArgumentNullException("url");
             }
 
-            return await CreateDocumentAsync(url, null, name, Tag, DocumentType.Pdf, princeVersion, strict, javascript, TestMode, help).ConfigureAwait(false);
+            return await CreateDocumentAsync(url, null, name, Tag, DocumentType.Pdf, strict, javascript, TestMode, help).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -127,7 +130,6 @@ namespace NDocRaptor {
         public async Task<DocRaptorResponse> CreatePdfDocumentAsync(
             string content,
             string name = "Untitled",
-            string princeVersion = "9.0",
             bool strict = false,
             bool javascript = false,
             bool help = false) {
@@ -136,7 +138,7 @@ namespace NDocRaptor {
                 throw new ArgumentNullException("content");
             }
 
-            return await CreateDocumentAsync(null, content, name, Tag, DocumentType.Pdf, princeVersion, strict, javascript, TestMode, help).ConfigureAwait(false);
+            return await CreateDocumentAsync(null, content, name, Tag, DocumentType.Pdf, strict, javascript, TestMode, help).ConfigureAwait(false);
         }
 
         private static DocRaptorResponse CreateResponse(HttpResponseMessage responseMessage) {
