@@ -7,6 +7,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDocRaptor", "NDocRaptor\ND
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDocRaptor.Test", "NDocRaptor.Test\NDocRaptor.Test.csproj", "{00F2B093-7884-4EE5-A36E-2D520EAD6DA9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0C9491FD-ED1A-4ABA-A1CE-01F49EF5529E}"
+	ProjectSection(SolutionItems) = preProject
+		NDocRaptor.nuspec = NDocRaptor.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

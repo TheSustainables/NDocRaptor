@@ -24,7 +24,7 @@ namespace NDocRaptor {
             TestMode = testMode;
             Tag = tag;
             Client = new HttpClient();
-            DocRaptorUrl = new Uri(useSsl ? "https" : "http" + "://docraptor.com/docs");
+            DocRaptorUrl = new Uri((useSsl ? "https" : "http") + "://docraptor.com/docs");
         }
 
         /// <summary>
