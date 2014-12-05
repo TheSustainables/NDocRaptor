@@ -53,8 +53,13 @@ namespace NDocRaptor {
             bool help = false,
             Dictionary<string, string> parameters = null) {
 
+            if (string.IsNullOrEmpty(name)) {
+                throw new ArgumentNullException("name");
+            }
+
             var form = new Dictionary<string, string> {
                 { "doc[document_type]", documentType.ToString().ToLower() },
+                { "doc[name]", name },
                 { "doc[test]", test.ToString().ToLower() },
                 { "doc[tag]", tag },
                 { "doc[strict]", strict ? "html" : "none" }
@@ -65,10 +70,6 @@ namespace NDocRaptor {
             }
             else {
                 form.Add("doc[document_content]", content);
-            }
-
-            if (!string.IsNullOrEmpty(name)) {
-                form.Add("doc[name]", name);
             }
 
             if (help) {
