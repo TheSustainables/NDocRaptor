@@ -51,6 +51,7 @@ namespace NDocRaptor {
             bool javascript = false,
             bool test = false,
             bool help = false,
+            string princeVersion = "9.0",
             Dictionary<string, string> parameters = null) {
 
             if (string.IsNullOrEmpty(name)) {
@@ -62,7 +63,8 @@ namespace NDocRaptor {
                 { "doc[name]", name },
                 { "doc[test]", test.ToString().ToLower() },
                 { "doc[tag]", tag },
-                { "doc[strict]", strict ? "html" : "none" }
+                { "doc[strict]", strict ? "html" : "none" },
+                { "doc[prince_options][version]", princeVersion }
             };
 
             if (url != null) {
@@ -109,13 +111,14 @@ namespace NDocRaptor {
             string name = "Untitled",
             bool strict = false,
             bool javascript = false,
-            bool help = false) {
+            bool help = false,
+            string princeVersion = "9.0") {
 
             if (url == null) {
                 throw new ArgumentNullException("url");
             }
 
-            return await CreateDocumentAsync(url, null, name, Tag, DocumentType.Pdf, strict, javascript, TestMode, help).ConfigureAwait(false);
+            return await CreateDocumentAsync(url, null, name, Tag, DocumentType.Pdf, strict, javascript, TestMode, help, princeVersion).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -133,13 +136,14 @@ namespace NDocRaptor {
             string name = "Untitled",
             bool strict = false,
             bool javascript = false,
-            bool help = false) {
+            bool help = false,
+            string princeVersion = "9.0") {
 
             if (content == null) {
                 throw new ArgumentNullException("content");
             }
 
-            return await CreateDocumentAsync(null, content, name, Tag, DocumentType.Pdf, strict, javascript, TestMode, help).ConfigureAwait(false);
+            return await CreateDocumentAsync(null, content, name, Tag, DocumentType.Pdf, strict, javascript, TestMode, help, princeVersion).ConfigureAwait(false);
         }
 
         private static DocRaptorResponse CreateResponse(HttpResponseMessage responseMessage) {
