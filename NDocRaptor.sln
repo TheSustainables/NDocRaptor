@@ -1,16 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDocRaptor", "NDocRaptor\NDocRaptor.csproj", "{0CB88D08-221D-4179-9C57-E68C69158FFA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDocRaptor.Test", "NDocRaptor.Test\NDocRaptor.Test.csproj", "{00F2B093-7884-4EE5-A36E-2D520EAD6DA9}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0C9491FD-ED1A-4ABA-A1CE-01F49EF5529E}"
 	ProjectSection(SolutionItems) = preProject
 		NDocRaptor.nuspec = NDocRaptor.nuspec
 	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NDocRaptor", "NDocRaptor\NDocRaptor.xproj", "{9DD5D80D-61C9-4B3D-B4E1-C272E1E7524B}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NDocRaptor.Test", "NDocRaptor.Test\NDocRaptor.Test.xproj", "{2F19697E-139D-43B2-AD2D-1F5E9FEDD95E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,14 +18,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0CB88D08-221D-4179-9C57-E68C69158FFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0CB88D08-221D-4179-9C57-E68C69158FFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0CB88D08-221D-4179-9C57-E68C69158FFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0CB88D08-221D-4179-9C57-E68C69158FFA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{00F2B093-7884-4EE5-A36E-2D520EAD6DA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{00F2B093-7884-4EE5-A36E-2D520EAD6DA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{00F2B093-7884-4EE5-A36E-2D520EAD6DA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{00F2B093-7884-4EE5-A36E-2D520EAD6DA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DD5D80D-61C9-4B3D-B4E1-C272E1E7524B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DD5D80D-61C9-4B3D-B4E1-C272E1E7524B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DD5D80D-61C9-4B3D-B4E1-C272E1E7524B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DD5D80D-61C9-4B3D-B4E1-C272E1E7524B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F19697E-139D-43B2-AD2D-1F5E9FEDD95E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F19697E-139D-43B2-AD2D-1F5E9FEDD95E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F19697E-139D-43B2-AD2D-1F5E9FEDD95E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F19697E-139D-43B2-AD2D-1F5E9FEDD95E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

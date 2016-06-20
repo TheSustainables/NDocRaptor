@@ -1,4 +1,6 @@
 @echo off
-nuget pack
+del *.nupkg
+
+nuget pack -Prop Configuration=Release -Build
 
 pause

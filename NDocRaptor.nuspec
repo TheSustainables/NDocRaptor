@@ -2,14 +2,14 @@
 <package >
   <metadata>
     <id>NDocRaptor</id>
-    <version>0.1.6</version>
+    <version>0.1.6-netcore</version>
     <authors>Robert Massa</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>DocRaptor .NET client library (unofficial)</description>
-    <copyright>Copyright The Sustainables BV 2015</copyright>
+    <copyright>Copyright The Sustainables BV 2016</copyright>
     <tags>docraptor pdf excel</tags>
   </metadata>
   <files>
-    <file src="NDocRaptor\bin\Release\*.dll" target="lib\net40" /> 
+    <file src="NDocRaptor\bin\Release\netcoreapp1.0\*.dll" target="lib\netcore" /> 
   </files>
 </package>
