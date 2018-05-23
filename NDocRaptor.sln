@@ -1,16 +1,16 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0C9491FD-ED1A-4ABA-A1CE-01F49EF5529E}"
 	ProjectSection(SolutionItems) = preProject
 		NDocRaptor.nuspec = NDocRaptor.nuspec
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NDocRaptor", "NDocRaptor\NDocRaptor.xproj", "{9DD5D80D-61C9-4B3D-B4E1-C272E1E7524B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NDocRaptor", "NDocRaptor\NDocRaptor.csproj", "{9DD5D80D-61C9-4B3D-B4E1-C272E1E7524B}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "NDocRaptor.Test", "NDocRaptor.Test\NDocRaptor.Test.xproj", "{2F19697E-139D-43B2-AD2D-1F5E9FEDD95E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NDocRaptor.Test", "NDocRaptor.Test\NDocRaptor.Test.csproj", "{2F19697E-139D-43B2-AD2D-1F5E9FEDD95E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,5 +29,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE51B541-BC3E-45F9-92B6-DE0846F5A047}
 	EndGlobalSection
 EndGlobal
